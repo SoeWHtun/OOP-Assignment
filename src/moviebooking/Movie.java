@@ -4,14 +4,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 public class Movie {
-      String movieName;
-      String genre;
-      int availableSeats;
-      double ticketPrice;
-      static int movieCount;
-      int bookedSeat;
-      static InputStreamReader inputStreamReader = new InputStreamReader(System.in);
-      static BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+      private String movieName;
+      private String genre;
+      private int availableSeats;
+      private double ticketPrice;
+      private static int movieCount;
+      private int bookedSeat;
+      private static InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+      private static BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
       
       public Movie(String movieName,String genre,int availableSeats,double ticketPrice) {
     	  this.movieName=movieName;
@@ -51,5 +51,23 @@ public class Movie {
        	 
        	 return new Movie(movieName,genre,availableSeats,ticketPrice);
 
+      }
+      public String getMovieName() {
+    	  return movieName;
+      }
+      public String getMovieGenre() {
+    	  return genre;
+      }
+      public int getAvailabeSeats() {
+    	  return availableSeats;
+      }
+      public double getTicketPrice() {
+    	  return ticketPrice;
+      }
+      public static int getMovieCount() {
+    	  return movieCount;
+      }
+      public int getBookedSeat() {
+    	  return bookedSeat;
       }
 }
