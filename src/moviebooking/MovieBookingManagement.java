@@ -5,9 +5,17 @@ import java.io.IOException;
 
 public class MovieBookingManagement {
     static Movie[] movies = new Movie[10];
+    static InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+    static BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+    static int mCount=0;
 	public static void main(String[] args)throws IOException {
-		movies[0]=Movie.getMovieInfo();
-		movies[1]=Movie.getMovieInfo();
+		String result;
+		do {
+			movies[mCount]=Movie.getMovieInfo();
+			mCount++;
+			System.out.print("Do you want to continue? yes/no : ");
+			result = bufferedReader.readLine();
+		}while(result.equals("yes"));
 		int choice =0;
 		System.out.println();
 		while(true) {
@@ -17,8 +25,6 @@ public class MovieBookingManagement {
 			System.out.println("3. Display the movie with the highest earning");
 			System.out.println("4. Display available seat for a movie");
 			System.out.print("Enter your choice in number : ");
-			InputStreamReader inputStreamReader = new InputStreamReader(System.in);
-	       	BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 	       	choice = Integer.parseInt(bufferedReader.readLine());
 			switch(choice) {
 			case 1:

@@ -9,6 +9,8 @@ public class Book {
        double price;
        int quantity;
        static int bookCount=0;
+       static InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+       static BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
        
        public Book(String title,String author,double price,int quantity) {
     	   this.title=title;
@@ -29,8 +31,6 @@ public class Book {
        }
       
        public static Book getBookInfo()throws IOException {
-    	 InputStreamReader inputStreamReader = new InputStreamReader(System.in);
-      	 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
       	 System.out.print("Enter the title of the book : ");
       	 String title = bufferedReader.readLine();
       	 System.out.print("Enter the author name : ");

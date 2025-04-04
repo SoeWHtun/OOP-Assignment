@@ -10,6 +10,8 @@ public class Employee {
      String department;
      double salary;
      static int count = 0;
+     static InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+     static BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
      
      public Employee(String name,String email,String phone,String department,double salary) {
     	 this.name=name;
@@ -24,8 +26,6 @@ public class Employee {
     	 return "Name : "+this.name+" | "+"Email : "+this.email+" | "+"Phone : "+this.phone+" | "+"Department : "+this.department+" | "+"Salary : "+this.salary+" | ";
      }
      public static Employee getEmployeeInfo()throws IOException {
-    	 InputStreamReader inputStreamReader = new InputStreamReader(System.in);
-         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
     	 System.out.print("Enter Name: ");
          String name = bufferedReader.readLine();
          System.out.print("Enter Email: ");

@@ -9,6 +9,8 @@ public class Product {
        int quantity;
        double pricePerUnit;
        static int productCount=0;
+       static InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+  	   static BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
        
      public Product(String name,String category,int quantity,double pricePerUnit) {
     	 this.name=name;
@@ -16,6 +18,7 @@ public class Product {
     	 this.quantity=quantity;
     	 this.pricePerUnit=pricePerUnit;
     	 productCount++;
+    	 
      }
      public double totalValue() {
     	 return this.pricePerUnit*this.quantity;
@@ -26,8 +29,6 @@ public class Product {
     	 return "Product Name : "+this.name+" | "+"Category : "+this.category+" | "+"Quantity : "+this.quantity+" | "+"Price Per Unit : "+this.pricePerUnit+" | ";
      }
      public static Product getProductInfo()throws IOException {
-    	 InputStreamReader inputStreamReader = new InputStreamReader(System.in);
-    	 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
     	 System.out.print("Enter the name of the product : ");
     	 String name = bufferedReader.readLine();
     	 System.out.print("Enter the catrgory : ");

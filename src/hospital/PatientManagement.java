@@ -5,15 +5,20 @@ import java.io.IOException;
 
 public class PatientManagement {
     static Patient[] patients = new Patient[100];
+    static InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+    static BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+    static int pCount=0;
 	public static void main(String[] args)throws IOException {
-		patients[0]=Patient.getPatientInfo();
-		patients[1]=Patient.getPatientInfo();
-		
+		String result;
+		do {
+			patients[pCount]=Patient.getPatientInfo();
+			pCount++;
+			System.out.print("Do you want to continue? yes/no : ");
+			result = bufferedReader.readLine();
+		}while(result.equals("yes"));
 		System.out.println();
 		displayPatient();
-		
-		InputStreamReader inputStreamReader = new InputStreamReader(System.in);
-		BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
         System.out.print("Enter doctor name to list assigned patients: ");
         String doctorName=bufferedReader.readLine();
         displayPatientDoctor(doctorName);

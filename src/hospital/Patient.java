@@ -9,6 +9,8 @@ public class Patient {
   String disease;
   String doctorAssigned;
   static int patientCount=0;
+  static InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+  static BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
   public Patient(String name,int age,String disease,String doctorAssigned) {
 	this.name=name;
@@ -22,8 +24,6 @@ public class Patient {
 	  return "Patient name : "+this.name+" | "+"Age : "+this.age+" | "+"Disease : "+this.disease+" | "+"Assigned Doctor : "+this.doctorAssigned+" | ";
   }
   public static Patient getPatientInfo() throws IOException {
-	     InputStreamReader inputStreamReader = new InputStreamReader(System.in);
-    	 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
     	 System.out.print("Enter the name of the patient : ");
     	 String name = bufferedReader.readLine();
     	 System.out.print("Enter the age : ");
