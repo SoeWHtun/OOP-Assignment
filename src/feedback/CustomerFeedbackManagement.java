@@ -1,11 +1,21 @@
 package feedback;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class CustomerFeedbackManagement {
     static CustomerFeedback[] feedbacks = new CustomerFeedback[50];
+    static InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+    static BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+    static int fCount=0;
 	public static void main(String[] args)throws IOException {
-		feedbacks[0]=CustomerFeedback.getFeedback();
-		feedbacks[1]=CustomerFeedback.getFeedback();
+		String result;
+		do {
+			feedbacks[fCount]=CustomerFeedback.getFeedback();
+			fCount++;
+			System.out.print("Do you want to continue? yes/no : ");
+			result = bufferedReader.readLine();
+		}while(result.equals("yes"));
 		System.out.println();
 		displayFeedbackInfo();
 		System.out.println("Average feedback rating : "+calculateAverageRating());

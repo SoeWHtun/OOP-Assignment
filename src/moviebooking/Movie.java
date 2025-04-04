@@ -10,6 +10,8 @@ public class Movie {
       double ticketPrice;
       static int movieCount;
       int bookedSeat;
+      static InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+      static BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
       
       public Movie(String movieName,String genre,int availableSeats,double ticketPrice) {
     	  this.movieName=movieName;
@@ -37,8 +39,6 @@ public class Movie {
     	 return this.bookedSeat*this.ticketPrice;
       }
       public static Movie getMovieInfo()throws IOException {
-    	 InputStreamReader inputStreamReader = new InputStreamReader(System.in);
-       	 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
        	 System.out.print("Enter the name of the movie : ");
        	 String movieName = bufferedReader.readLine();
        	 System.out.print("Enter the genre : ");

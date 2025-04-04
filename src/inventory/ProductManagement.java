@@ -1,21 +1,34 @@
 package inventory;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class ProductManagement {
     static Product[] products = new Product[100];
+    static InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+    static BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+    static int pCount =0;
 	public static void main(String[] args)throws IOException {
-		products[0]=Product.getProductInfo();
-		products[1]=Product.getProductInfo();
-		System.out.println("Product 1 total value : "+products[0].totalValue());
-		System.out.println("Product 2 total value : "+products[1].totalValue());
+		String result;
+		do {
+			products[pCount]=Product.getProductInfo();
+			pCount++;
+			System.out.print("Do you want to continue? yes/no : ");
+			result = bufferedReader.readLine();
+		}while(result.equals("yes"));
+		System.out.println();
+		displayTotalValue();
 		System.out.println();
 		displayProductInfo();
 		System.out.println();
 		findHighestQuantity();
 		System.out.println();
-		totalInventoryValue();
-		
-
+		totalInventoryValue();	
+	}
+	public static void displayTotalValue() {
+		for(int i = 0;i < Product.productCount;i++) {
+    		System.out.println("Product "+(i+1)+" total value : "+products[i].totalValue());
+    	}
 	}
     public static void displayProductInfo() {
     	for(int i = 0;i < Product.productCount;i++) {

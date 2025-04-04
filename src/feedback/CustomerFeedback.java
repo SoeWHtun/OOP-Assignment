@@ -9,6 +9,9 @@ public class CustomerFeedback {
           String feedback;
           int rating;
           static int feedbackCount=0;
+          static InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+          static BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
           
   public CustomerFeedback(String name,String email,String feedback,int rating) {
 	  this.name=name;
@@ -22,8 +25,6 @@ public class CustomerFeedback {
 	  return "Customer name : "+this.name+" | "+"Email : "+this.email+" | "+"Feedback : "+this.feedback+" | "+"Rating : "+this.rating+" | ";
   }
   public static CustomerFeedback getFeedback()throws IOException{
-	  InputStreamReader inputStreamReader = new InputStreamReader(System.in);
-	  BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 	  System.out.print("Enter your name : ");
 	  String name = bufferedReader.readLine();
 	  System.out.print("Enter your email : ");

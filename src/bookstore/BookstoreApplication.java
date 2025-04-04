@@ -5,9 +5,17 @@ import java.io.IOException;
 
 public class BookstoreApplication {
     static Book[] books = new Book[50];
+    static InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+    static BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+    static int bCount =0;
 	public static void main(String[] args) throws IOException{
-		books[0]=Book.getBookInfo();
-		books[1]=Book.getBookInfo();
+		String result;
+		do {
+			books[bCount]=Book.getBookInfo();
+			bCount++;
+			System.out.print("Do you want to continue? yes/no : ");
+			result = bufferedReader.readLine();
+		}while(result.equals("yes"));
 		int choice;
 		System.out.println();
 		while (true) {
@@ -18,8 +26,6 @@ public class BookstoreApplication {
             System.out.println("3. Purchase a book");
             System.out.println("4. Add stock to a book");
             System.out.print("Enter your choice in number : ");
-            InputStreamReader inputStreamReader = new InputStreamReader(System.in);
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             choice = Integer.parseInt(bufferedReader.readLine());
 
             switch (choice) {
