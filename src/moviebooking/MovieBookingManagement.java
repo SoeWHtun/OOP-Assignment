@@ -7,12 +7,10 @@ public class MovieBookingManagement {
     static Movie[] movies = new Movie[10];
     static InputStreamReader inputStreamReader = new InputStreamReader(System.in);
     static BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-    static int mCount=0;
 	public static void main(String[] args)throws IOException {
 		String result;
 		do {
-			movies[mCount]=Movie.getMovieInfo();
-			mCount++;
+			movies[Movie.getMovieCount()]=Movie.getMovieInfo();
 			System.out.print("Do you want to continue? yes/no : ");
 			result = bufferedReader.readLine();
 		}while(result.equals("yes"));
@@ -54,30 +52,30 @@ public class MovieBookingManagement {
 		}
 	}
 	public static void displayMovieInfo() {
-		for(int i=0;i<Movie.movieCount;i++) {
+		for(int i=0;i<Movie.getMovieCount();i++) {
 			System.out.println(movies[i].toString());
 		}
 	}
 	public static void bookTicket(String movieName, int num) {
-        for (int i = 0; i < Movie.movieCount; i++) {
-            if (movies[i].movieName.equalsIgnoreCase(movieName)) {
+        for (int i = 0; i < Movie.getMovieCount(); i++) {
+            if (movies[i].getMovieName().equalsIgnoreCase(movieName)) {
                 movies[i].bookTicket(movieName, num);
             }
         }
     }
 	public static String highestEarning() {
 		Movie highest = movies[0];
-		for(int i=1;i<Movie.movieCount;i++) {
+		for(int i=1;i<Movie.getMovieCount();i++) {
 			if(movies[i].totalEarning()>highest.totalEarning()) {
 				highest=movies[i];
 			}
-		}return highest.movieName;	
+		}return highest.getMovieName();	
 	}
 	public static int displayAvailableSeats(String movieName) {
 		int avail = 0;
-		for (int i = 0; i < Movie.movieCount; i++) {
-            if (movies[i].movieName.equalsIgnoreCase(movieName)) {
-                avail=movies[i].availableSeats;
+		for (int i = 0; i < Movie.getMovieCount(); i++) {
+            if (movies[i].getMovieName().equalsIgnoreCase(movieName)) {
+                avail=movies[i].getAvailabeSeats();
             }
         }return avail;
 	}
