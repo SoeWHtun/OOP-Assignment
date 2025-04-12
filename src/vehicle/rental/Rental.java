@@ -5,6 +5,7 @@ public class Rental {
       private VehicleType vehicleType;
       private double totalPrice;
       private Vehicle vehicle = new Vehicle();
+      public static int rentalCount;
       
       public Rental(int rentalId,VehicleType vehicleType,Vehicle vehicle,int rentedDays,double totalPrice) {
     	  this.rentalId=rentalId;
@@ -12,6 +13,7 @@ public class Rental {
     	  this.vehicle=vehicle;
     	  this.rentedDays=rentedDays;
     	  this.totalPrice=totalPrice;
+    	  rentalCount++;
     	  
       }
       public int getRentalId() {

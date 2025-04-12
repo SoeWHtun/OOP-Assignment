@@ -11,5 +11,8 @@ public enum CarType {
   CarType(String type){
     this.type = type;
   }
+  public String getType() {
+	  return type;
+  }
   
 }
