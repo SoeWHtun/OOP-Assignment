@@ -2,22 +2,24 @@ package vehicle.rental;
 
 public class Rental {
       private int rentalId,rentedDays;
-      private String vehicleType;
+      private VehicleType vehicleType;
       private double totalPrice;
       private Vehicle vehicle = new Vehicle();
+      public static int rentalCount;
       
-      public Rental(int rentalId,String vehicleType,Vehicle vehicle,int rentedDays,double totalPrice) {
+      public Rental(int rentalId,VehicleType vehicleType,Vehicle vehicle,int rentedDays,double totalPrice) {
     	  this.rentalId=rentalId;
     	  this.vehicleType=vehicleType;
     	  this.vehicle=vehicle;
     	  this.rentedDays=rentedDays;
     	  this.totalPrice=totalPrice;
+    	  rentalCount++;
     	  
       }
       public int getRentalId() {
     	  return rentalId;
       }
-      public String getVehicleType() {
+      public VehicleType getVehicleType() {
     	  return vehicleType;
       }
       public Vehicle getVehicle() {
@@ -32,7 +34,7 @@ public class Rental {
       public void setRentalId(int rentalId) {
     	  this.rentalId=rentalId;
       }
-      public void setVehicleType(String vehicleType) {
+      public void setVehicleType(VehicleType vehicleType) {
     	  this.vehicleType=vehicleType;
       }
       public void setVehicle(Vehicle vehicle) {
